@@ -22,7 +22,7 @@ pipeline {
                sh 'docker build -t ALEKHYA .'
             }
         }
-         stage('DC'){
+         stage('DT'){
             steps {
                sh 'docker run -p 9090:8080 --name samplee ALEKHYA .'
             }
