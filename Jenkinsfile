@@ -1,17 +1,14 @@
 pipeline {
   
-    agent {
-        label 'Ansible-Node'
-    }
-    
+    agent any
     tools{
-        maven "Maven-3.9.6"
+        maven "M3"
     }
 
     stages {
         stage('Clone') {
             steps {
-               git 'https://github.com/ashokitschool/maven-web-app.git'
+               git 'https://github.com/Alekhya-kandala/maven-web-app.git'
             }
         }
         stage('Build') {
@@ -20,13 +17,14 @@ pipeline {
             }
         }
         
-        stage('Create Image'){
-            steps{
-               steps {
-                	script {
-                		sh 'ansible-playbook task.yml'
-                	}
-                }
+        stage('DC'){
+            steps {
+               sh 'docker build -t ALEKHYA .'
+            }
+        }
+         stage('DC'){
+            steps {
+               sh 'docker run -p 9090:8080 --name samplee ALEKHYA .'
             }
         }
     }
