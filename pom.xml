@@ -26,4 +26,15 @@
       </plugin>
     </plugins>
   </build>
+  <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <url>https://your.repo.url/releases</url> <!-- Replace with your actual repository URL -->
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>https://your.repo.url/snapshots</url> <!-- Replace with your actual repository URL -->
+    </snapshotRepository>
+  </distributionManagement>
+
 </project>
